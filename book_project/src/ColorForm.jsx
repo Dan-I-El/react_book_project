@@ -1,12 +1,16 @@
 import { useInput } from "./hooks";
+import { useColors } from "./ColorProvider";
+
 
 export default function AddColorForm({ onNewColor = f=> f}) {
     const [titleProps, setTitle ] = useInput("");
     const [colorProps, setColor] = useInput("#000000");
 
+    const { addColor } = useColors();
+
     const submit = e=> {
         e.preventDefault();
-        onNewColor(titleProps.value, colorProps.value);
+        addColor(titleProps.value, colorProps.value);
         setTitle("");
         setColor("");
     }
