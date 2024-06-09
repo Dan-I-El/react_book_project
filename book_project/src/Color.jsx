@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useColors } from "./ColorProvider";
 import StarRating from "./StarRating";
 import { FaTrash } from "react-icons/fa";
@@ -7,6 +7,10 @@ import { FaTrash } from "react-icons/fa";
 export default function Color({id, title, color, rating}) {
 
     const { rateColor, removeColor } = useColors();
+
+    useEffect(()=> {
+        return ()=> console.log("Component deleted!");
+    }, [])
     return (
         <section>
             <h1>{title}</h1>

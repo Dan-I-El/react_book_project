@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useInput } from "./hooks";
 import { useColors } from "./ColorProvider";
 
@@ -7,6 +8,10 @@ export default function AddColorForm({ onNewColor = f=> f}) {
     const [colorProps, setColor] = useInput("#000000");
 
     const { addColor } = useColors();
+
+    useEffect(()=> {
+        console.log(titleProps.value);
+    }, [titleProps.value]);
 
     const submit = e=> {
         e.preventDefault();
